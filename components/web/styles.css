@@ -1,0 +1,85 @@
+:host {
+    display: block;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    background-color: #005BAC;
+    padding: 10px 20px;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.menu-icon span,
+.user-icon span {
+    font-size: 24px;
+    color: white;
+}
+
+.menu-icon {
+    margin-left: 10px;
+}
+
+.logo span {
+    font-size: 24px;
+    color: white;
+    font-weight: bold;
+}
+
+.menu {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 300px;
+    height: 100%;
+    background-color: white;
+    transition: right 0.3s;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+    overflow-y: auto;
+}
+
+.menu-header {
+    background-color: #005BAC;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu-header .logo span {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.menu-header .close-icon span {
+    font-size: 24px;
+    color: white;
+}
+
+.menu-items {
+    padding: 20px;
+}
+
+.menu-section {
+    margin-bottom: 20px;
+}
+
+.menu-item {
+    padding: 10px 0;
+    font-size: 18px;
+    border-bottom: 1px solid #ddd;
+}
