@@ -12,22 +12,24 @@
             <!-- Placeholder for the logo -->
             <div class="logo-placeholder">LOGO</div>
         </div>
-        <ul class="nav-links">
-            <li><a href="#">Novedades y destacados</a></li>
-            <li><a href="#">Hombre</a></li>
-            <li><a href="#">Mujer</a></li>
-            <li><a href="#">Niño/a</a></li>
+        <ul class="nav-links" id="navLinks">
+            <li><button class="navbar-toggle" id="menuButton">Hombre</button></li>
             <li><a href="#">Ofertas</a></li>
         </ul>
-        <div class="search-bar">
+        <div class="search-bar" id="searchBar">
             <input type="text" placeholder="Buscar">
-            <button class="search-button">
-                <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" role="img" width="16px" height="16px" fill="none">
+            <button class="search-button" id="searchButton">
+                <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" role="img" fill="none">
                     <path stroke="currentColor" stroke-width="1.5" d="M13.962 16.296a6.716 6.716 0 01-3.462.954 6.728 6.728 0 01-4.773-1.977A6.728 6.728 0 013.75 10.5c0-1.864.755-3.551 1.977-4.773A6.728 6.728 0 0110.5 3.75c1.864 0 3.551.755 4.773 1.977A6.728 6.728 0 0117.25 10.5a6.726 6.726 0 01-.921 3.407c-.517.882-.434 1.988.289 2.711l3.853 3.853"></path>
                 </svg>
             </button>
         </div>
         <div class="icons">
+            <button class="icon search-icon" id="searchIcon">
+                <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" role="img" width="24px" height="24px" fill="none">
+                    <path stroke="currentColor" stroke-width="1.5" d="M13.962 16.296a6.716 6.716 0 01-3.462.954 6.728 6.728 0 01-4.773-1.977A6.728 6.728 0 013.75 10.5c0-1.864.755-3.551 1.977-4.773A6.728 6.728 0 0110.5 3.75c1.864 0 3.551.755 4.773 1.977A6.728 6.728 0 0117.25 10.5a6.726 6.726 0 01-.921 3.407c-.517.882-.434 1.988.289 2.711l3.853 3.853"></path>
+                </svg>
+            </button>
             <button class="icon favorite" onclick="addToFavorites()">
                 <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" role="img" width="24px" height="24px" fill="none">
                     <path stroke="currentColor" stroke-width="1.5" d="M16.794 3.75c1.324 0 2.568.516 3.504 1.451 1.937 1.937 1.937 5.07 0 7.007L12 20.506 3.702 12.208c-1.937-1.937-1.937-5.07 0-7.007C4.638 4.266 5.882 3.75 7.206 3.75s2.568.516 3.504 1.451l.788.787.787-.787C14.226 4.266 15.47 3.75 16.794 3.75z"></path>
@@ -37,9 +39,99 @@
                 <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" role="img" width="24px" height="24px" fill="none">
                     <path stroke="currentColor" stroke-width="1.5" d="M8.25 8.25V6a2.25 2.25 0 012.25-2.25h3a2.25 2.25 0 110 4.5H3.75v8.25a3.75 3.75 0 003.75 3.75h9a3.75 3.75 0 003.75-3.75V8.25H17.5"></path>
                 </svg>
+            </button>            
+            <button class="icon hamburger" id="menu-icon" onclick="toggleMenu()">
+                <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" role="img" width="24px" height="24px" fill="none">
+                    <path stroke="currentColor" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
             </button>
         </div>
     </nav>
+    <div class="dropdown-menu" id="dropdownMenu">
+        <div class="dropdown-column">
+            <h3>SHOES</h3>
+            <ul>
+                <li><a href="#">Trainers</a></li>
+                <li><a href="#">Active Shoes</a></li>
+                <li><a href="#">Water-Repellent Shoes</a></li>
+                <li><a href="#">Shop all</a></li>
+            </ul>
+        </div>
+        <div class="dropdown-column">
+            <h3>BEST SELLERS</h3>
+            <ul>
+                <li><a href="#">Tree Runner</a></li>
+                <li><a href="#">Tree Dasher 2</a></li>
+                <li><a href="#">Wool Runner Mizzles</a></li>
+                <li><a href="#">Tree Dasher Relay</a></li>
+                <li><a href="#">Shop all</a></li>
+            </ul>
+        </div>
+        <div class="dropdown-column">
+            <h3>APPAREL & MORE</h3>
+            <ul>
+                <li><a href="#">Tees</a></li>
+                <li><a href="#">Underwear</a></li>
+                <li><a href="#">Socks</a></li>
+                <li><a href="#">Sweatshirts & Sweatpants</a></li>
+                <li><a href="#">Hats</a></li>
+                <li><a href="#">Face Masks</a></li>
+                <li><a href="#">Insoles</a></li>
+                <li><a href="#">Lace Kits</a></li>
+                <li><a href="#">Digital Gift Cards</a></li>
+            </ul>
+        </div>
+        <div class="dropdown-column">
+            <h3>FEATURED</h3>
+            <img src="tree_runner_go.png" alt="Tree Runner Go">
+            <img src="bestsellers.png" alt="Bestsellers">
+        </div>
+    </div>
+    <div class="search-dropdown" id="searchDropdown">
+        <div class="search-container">
+            <div class="search-bar-dropdown">
+                <input type="text" placeholder="Buscar">
+                <button class="search-button-dropdown" id="searchButtonDropdown">
+                    <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" role="img" fill="none">
+                        <path stroke="currentColor" stroke-width="1.5" d="M13.962 16.296a6.716 6.716 0 01-3.462.954 6.728 6.728 0 01-4.773-1.977A6.728 6.728 0 013.75 10.5c0-1.864.755-3.551 1.977-4.773A6.728 6.728 0 0110.5 3.75c1.864 0 3.551.755 4.773 1.977A6.728 6.728 0 0117.25 10.5a6.726 6.726 0 01-.921 3.407c-.517.882-.434 1.988.289 2.711l3.853 3.853"></path>
+                    </svg>
+                </button>
+            </div>
+            <button class="cancel-button" id="cancelButton">Cancelar</button>
+            <div class="search-title">
+                <h3>Términos de búsqueda populares</h3>
+            </div>
+            <ul class="search-list">
+                <li><a href="#">Air Force 1</a></li>
+                <li><a href="#">Jordan</a></li>
+                <li><a href="#">Air Max</a></li>
+                <li><a href="#">Blazer</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="menu" id="menu">
+        <div class="menu-header">
+            <div class="close-icon" id="close-icon">
+                <span>&#10006;</span>
+            </div>
+        </div>
+        <div class="menu-items">
+            <div class="menu-section">
+                <div class="menu-item">REGÍSTRATE</div>
+                <div class="menu-item">EDICIONES IMPRESAS</div>
+                <div class="menu-item">NEWSLETTERS</div>
+            </div>
+            <div class="menu-section">
+                <div class="menu-item">Madrid</div>
+                <div class="menu-item">Cataluña</div>
+            </div>
+        </div>
+    </div>
+    <main class="main-content">
+        <div class="image-placeholder">
+            <img src="https://via.placeholder.com/800x400" alt="Placeholder Image">
+        </div>
+    </main>
     <script src="scripts.js"></script>
 </body>
 </html>

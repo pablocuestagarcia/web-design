@@ -7,9 +7,11 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 20px;
+    padding: 10px 10px;
+    width: 100%;
     background-color: #fff;
     border-bottom: 1px solid #ddd;
+    position: relative;
 }
 
 .logo-placeholder {
@@ -33,28 +35,31 @@ body {
     margin: 0;
 }
 
-.nav-links a {
+.nav-links a, .navbar-toggle {
     text-decoration: none;
     color: #000;
     font-size: 14px;
     font-weight: bold;
     position: relative;
-    padding-bottom: 5px; /* Ajusta este valor según el espacio que desees entre el texto y la línea */
+    padding-bottom: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
 }
 
-.nav-links a::after {
+.nav-links a::after, .navbar-toggle::after {
     content: '';
     display: block;
     width: 0;
-    height: 2px; /* Ajusta este valor para cambiar el grosor de la línea */
-    background: #000; /* Color de la línea */
+    height: 2px;
+    background: #000;
     transition: width 0.3s;
     position: absolute;
     bottom: 0;
     left: 0;
 }
 
-.nav-links a:hover::after {
+.nav-links a:hover::after, .navbar-toggle:hover::after {
     width: 100%;
 }
 
@@ -62,12 +67,17 @@ body {
     position: relative;
     display: flex;
     align-items: center;
+    background-color: #f1f1f1;
+    border-radius: 20px;
+    padding: 10px 20px;
 }
 
 .search-bar input {
-    padding: 5px 10px;
-    border: 1px solid #ddd;
-    border-radius: 20px;
+    border: none;
+    outline: none;
+    background: none;
+    padding-left: 40px;
+    font-size: 16px;
 }
 
 .search-button {
@@ -75,26 +85,323 @@ body {
     border: none;
     cursor: pointer;
     position: absolute;
-    right: 10px;
-    padding: 0;
+    left: 10px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.3s;
 }
 
 .search-button svg {
-    width: 16px;
-    height: 16px;
+    width: 24px;
+    height: 24px;
+}
+
+.search-button:hover {
+    background-color: #ddd;
 }
 
 .icons {
     display: flex;
-    gap: 15px;
+    gap: 20px; /* Aumenta el espacio entre los íconos */
+    align-items: center;
 }
 
 .icon {
-    width: 24px;
-    height: 24px;
+    width: 40px; /* Aumenta el tamaño del icono */
+    height: 40px;
     background-size: cover;
     background-repeat: no-repeat;
     border: none;
     background: none;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+}
+
+.icon svg {
+    width: 24px; /* Aumenta el tamaño del svg dentro del icono */
+    height: 24px;
+}
+
+.icon:hover {
+    background-color: #ddd;
+}
+
+.search-icon {
+    display: none;
+    width: 40px;
+    height: 40px;
+}
+
+.search-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.hamburger {
+    display: none;
+}
+
+.hamburger svg {
+    width: 24px;
+    height: 24px;
+}
+
+.main-content {
+    padding: 20px;
+}
+
+.image-placeholder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f5f5;
+    padding: 20px;
+}
+
+.image-placeholder img {
+    max-width: 100%;
+    height: auto;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100vw;
+    background-color: #f9f9f9;
+    color: #000000;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+    display: flex;
+    justify-content: space-around;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.dropdown-menu.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.dropdown-column {
+    width: 20%;
+}
+
+.dropdown-column h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.dropdown-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.dropdown-column ul li {
+    padding: 5px 0;
+}
+
+.dropdown-column ul li a {
+    color: #000;
+    text-decoration: none;
+}
+
+.dropdown-column img {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.search-dropdown {
+    position: fixed; /* Cambiado de absolute a fixed */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    background-color: #fff;
+    color: #000000;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1001; /* Asegúrate de que esté por encima del navbar */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.search-dropdown.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.search-container {
+    width: 100%;
+}
+
+.search-bar-dropdown {
+    display: flex;
+    align-items: center;
+    background-color: #f1f1f1;
+    border-radius: 20px;
+    padding: 10px 20px;
+    width: calc(100% - 150px); /* Ajusta el ancho para dejar espacio al botón cancelar */
+    box-sizing: border-box;
+    position: relative;
+    float: left;
+}
+
+.search-bar-dropdown input {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: none;
+    padding-left: 40px;
+    font-size: 16px;
+}
+
+.search-button-dropdown {
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    left: 10px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+}
+
+.search-button-dropdown svg {
+    width: 24px;
+    height: 24px;
+}
+
+.search-button-dropdown:hover {
+    background-color: #ddd;
+}
+
+.cancel-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: #000;
+    font-weight: bold;
+    float: right;
+    margin-left: 0px;
+    margin-top: 10px;
+    margin-right: 50px;
+    padding-left: 0;
+}
+
+.search-title {
+    clear: both; /* Asegura que el título esté debajo de la barra de búsqueda y el botón cancelar */
+    padding-top: 10px;
+}
+
+.search-list {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0 0;
+}
+
+.search-list li {
+    padding: 10px 0;
+}
+
+.search-list li a {
+    text-decoration: none;
+    color: #000;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+
+.menu {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 300px;
+    height: 100%;
+    background-color: white;
+    transition: right 0.3s;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+    overflow-y: auto;
+}
+
+.menu-header {
+    background-color: #f1f1f1;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu-header .logo span {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.menu-header .close-icon span {
+    font-size: 24px;
+    color: black;
+}
+
+.menu-items {
+    padding: 20px;
+}
+
+.menu-section {
+    margin-bottom: 20px;
+}
+
+.menu-item {
+    padding: 10px 0;
+    font-size: 18px;
+    border-bottom: 1px solid #ddd;
+}
+
+@media (max-width: 768px) {
+    .search-bar {
+        display: none;
+    }
+
+    .search-icon {
+        display: flex;
+    }
+
+    .hamburger {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-links {
+        display: none;
+    }
+
+    .icons {
+        justify-content: flex-end;
+        width: 100%;
+    }
+
+    .hamburger {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 }

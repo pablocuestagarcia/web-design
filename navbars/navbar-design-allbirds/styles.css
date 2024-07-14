@@ -1,0 +1,98 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    width: 100%;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1000;
+    padding: 10px 20px;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.navbar-toggle {
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #000;
+    margin: 0 10px;
+    font-size: 16px;
+}
+
+.navbar-logo {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0 20px;
+}
+
+.sale {
+    color: red;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100vw;
+    background-color: #f9f9f9;
+    color: #000000;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+    display: flex;
+    justify-content: space-around;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.dropdown-menu.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.dropdown-column {
+    width: 20%;
+}
+
+.dropdown-column h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.dropdown-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.dropdown-column ul li {
+    padding: 5px 0;
+}
+
+.dropdown-column ul li a {
+    color: #000;
+    text-decoration: none;
+}
+
+.dropdown-column img {
+    width: 100%;
+    margin-bottom: 10px;
+}
